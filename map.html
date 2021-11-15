@@ -24,13 +24,47 @@
 	<!-- rozciaganie na ekranie -->
 	
 	body 
-	{margin: 0;}
+	{
+	margin: 0;
+	}
 	
 	html, #map 
 	{
     height: 100%;
     width: 100%;
 	}
+	
+#refreshButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  z-index: 400;
+  
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	background-color: #305468;
+	border-radius: 8px;
+	opacity: 0.8;
+	}
+
+	#refreshButton:hover{
+    
+	
+	background-color: #FFFFFF;
+	color: #305468;
+	border: 2px solid #305468;
+	border-radius: 8px;
+	}
+
+	
 	
 	</style>
 	<title>POS Map</title> 
@@ -40,7 +74,11 @@
 
    
  <body>
- <div id="map"> 
+ <div id="map"> </div>
+ 
+
+ <button id="refreshButton" onClick="location.href='index.html'">Go back</button>
+
  
  <link rel="stylesheet" href="css/leaflet.css">
    
@@ -48,8 +86,7 @@
    // ,{maxZoom:22} po 'map'
    var mymap = L.map('map').setView([52.24614947735841, 21.02002643154671], 11);
    
-   
-	//L.tileLayer("http://192.168.1.100:3000/epww_256/{z}/{x}/{y}.png").addTo(mymap) 
+    
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?').addTo(mymap);
 	
 	//Locations
